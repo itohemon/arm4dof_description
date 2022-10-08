@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="arm4dof">
-	<link name="hand_free">
+	<link name="finger">
 		<inertial>
 			<mass value="0.1620904614417843"/>
 			<origin rpy="0 0 0" xyz="0.017572616560184332 0.02339311441352253 0.026468299189299327"/>
 			<inertia ixx="0.00018855700831591377" ixy="-4.830126172258614e-07" ixz="-5.465079275041806e-07" iyy="0.000187250928272303" iyz="-2.5198409207287397e-05" izz="4.281226005568026e-05"/>
 		</inertial>
-		<collision name="hand_free_collision">
+		<collision name="finger_collision">
 			<origin rpy="-2.775557561562892e-17 -0.0 -1.6653345369377348e-16" xyz="0.017899999999999687 -0.02061499999999994 -0.28825492591488516"/>
 			<geometry>
-				<mesh filename="package://arm4dof_description/meshes/hand_free.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package://arm4dof_description/meshes/finger.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</collision>
-		<visual name="hand_free_visual">
+		<visual name="finger_visual">
 			<origin rpy="-2.775557561562892e-17 -0.0 -1.6653345369377348e-16" xyz="0.017899999999999687 -0.02061499999999994 -0.28825492591488516"/>
 			<geometry>
-				<mesh filename="package://arm4dof_description/meshes/hand_free.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package://arm4dof_description/meshes/finger.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</visual>
 	</link>
-	<link name="hand_fixed">
+	<link name="hand">
 		<inertial>
 			<mass value="0.751568194075787"/>
 			<origin rpy="0 0 0" xyz="-5.6146206526912286e-05 0.014623837021789394 0.050500760679562884"/>
 			<inertia ixx="0.0011947772732698923" ixy="4.4418819288698735e-07" ixz="6.960611453683541e-07" iyy="0.0010027580082652434" iyz="0.00020241878082143146" izz="0.0002993282090664248"/>
 		</inertial>
-		<collision name="hand_fixed_collision">
+		<collision name="hand_collision">
 			<origin rpy="-2.775557561562892e-17 -0.0 -1.6653345369377348e-16" xyz="1.7763104897573767e-13 0.017900074085115916 -0.2214699252666839"/>
 			<geometry>
-				<mesh filename="package://arm4dof_description/meshes/hand_fixed.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package://arm4dof_description/meshes/hand.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
 		</collision>
-		<visual name="hand_fixed_visual">
+		<visual name="hand_visual">
 			<origin rpy="-2.775557561562892e-17 -0.0 -1.6653345369377348e-16" xyz="1.7763104897573767e-13 0.017900074085115916 -0.2214699252666839"/>
 			<geometry>
-				<mesh filename="package://arm4dof_description/meshes/hand_fixed.stl" scale="1.0 1.0 1.0"/>
+				<mesh filename="package://arm4dof_description/meshes/hand.stl" scale="1.0 1.0 1.0"/>
 			</geometry>
    <material name="gray_color">
     <color rgba="0.9 0.9 0.9 1"/>
@@ -123,35 +123,35 @@
 			</geometry>
 		</visual>
 	</link>
-	<joint name="rev0" type="revolute">
-		<parent link="hand_fixed"/>
-		<child link="hand_free"/>
+	<joint name="finger_joint" type="revolute">
+		<parent link="hand"/>
+		<child link="finger"/>
 		<origin rpy="0 0 0" xyz="-0.017899999999822058 0.038515074085115855 0.06678500064820125"/>
 		<axis xyz="-1.0000000000000007 -5.5511151231176124e-17 -7.216449660063521e-16"/>
   <limit lower="-0.785" upper="0.785" effort="0" velocity="0"/>
 	</joint>
-	<joint name="rev1" type="revolute">
+	<joint name="joint1" type="revolute">
 		<parent link="forearm"/>
-		<child link="hand_fixed"/>
+		<child link="hand"/>
 		<origin rpy="0 0 0" xyz="-1.9312351197398048e-17 4.388850394221322e-16 0.09999999999999948"/>
 		<axis xyz="5.469212746514901e-15 -0.9999999999999988 4.0132109545040804e-15"/>
   <limit lower="-2.355" upper="2.355" effort="0" velocity="0"/>
 	</joint>
-	<joint name="rev2" type="revolute">
+	<joint name="joint2" type="revolute">
 		<parent link="upperarm"/>
 		<child link="forearm"/>
 		<origin rpy="0 0 0" xyz="-1.7781568860571195e-13 -7.408511604189982e-08 0.09157000000000029"/>
 		<axis xyz="-4.56250541873071e-15 -0.9999999999999984 4.013210954504077e-15"/>
   <limit lower="-2.355" upper="2.355" effort="0" velocity="0"/>
 	</joint>
-	<joint name="rev3" type="revolute">
+	<joint name="joint3" type="revolute">
 		<parent link="shoulder"/>
 		<child link="upperarm"/>
 		<origin rpy="0 0 0" xyz="2.7934012189739094e-08 -0.01790000000000031 0.030099999351800136"/>
 		<axis xyz="4.9960036108131995e-16 -0.9999999999999996 1.1662307446965333e-14"/>
   <limit lower="-2.355" upper="2.355" effort="0" velocity="0"/>
 	</joint>
-	<joint name="rev4" type="revolute">
+	<joint name="joint4" type="revolute">
 		<parent link="base_link"/>
 		<child link="shoulder"/>
 		<origin rpy="0 0 0" xyz="-0.00011998774492904957 0.009207659539338426 0.009127545265139512"/>
