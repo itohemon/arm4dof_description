@@ -11,12 +11,18 @@
     <color rgba="0.9 0.9 0.9 1"/>
    </material>
 		</visual>
+  <collision>
+   <origin rpy="0 0 0" xyz="0 0 0.02"/>
+   <geometry>
+    <cylinder length="0.04" radius="0.05"/>
+			</geometry>
+		</collision>
 	</link>
 
  <joint name="joint1" type="revolute">
   <parent link="base_link"/>
   <child link="shoulder"/>
-  <origin rpy="3.14 0 0" xyz="0 0 0.040"/>
+  <origin rpy="0 0 0" xyz="0 0 0.040"/>
   <axis xyz="0 0 1"/>
   <limit lower="-3.14" upper="3.14" effort="0" velocity="0"/>
  </joint>
@@ -28,13 +34,18 @@
     <cylinder length="0.006" radius="0.01"/>
 			</geometry>
 		</visual>
+  <collision>
+   <origin rpy="0 0 0" xyz="0 0 0.003"/>
+			<geometry>
+    <cylinder length="0.006" radius="0.01"/>
+			</geometry>
+		</collision>
 	</link>
-
 
  <joint name="joint2" type="revolute">
   <parent link="shoulder"/>
   <child link="upperarm"/>
-  <origin rpy="3.14 0 0" xyz="0 0 -0.029"/>
+  <origin rpy="0 0 0" xyz="0 0 0.029"/>
   <axis xyz="0 1 0"/>
   <limit lower="-1.5708" upper="1.5708" effort="0" velocity="0"/>
  </joint>
@@ -49,6 +60,12 @@
     <color rgba="0.9 0.9 0.9 1"/>
    </material>
 		</visual>
+		<collision>
+   <origin rpy="0 0 0" xyz="0 0 0.045785"/>
+			<geometry>
+    <box size="0.02473 0.036 0.11180"/>
+			</geometry>
+		</collision>
 	</link>
 
  <joint name="joint3" type="revolute">
@@ -58,7 +75,7 @@
   <axis xyz="0 1 0"/>
   <limit lower="-1.5708" upper="1.5708" effort="0" velocity="0"/>
  </joint>
-  
+ 
 	<link name="forearm">
 		<visual name="forearm_visual">
    <origin rpy="0 0 0" xyz="0 0 0.05"/>
@@ -66,6 +83,12 @@
     <box size="0.02473 0.036 0.124"/>
 			</geometry>
 		</visual>
+		<collision>
+   <origin rpy="0 0 0" xyz="0 0 0.05"/>
+			<geometry>
+    <box size="0.02473 0.036 0.124"/>
+			</geometry>
+		</collision>
 	</link>
 
  <link name="hand">
@@ -78,6 +101,12 @@
     <color rgba="0.9 0.9 0.9 1"/>
    </material>
   </visual>
+  <collision>
+   <origin rpy="0 0 0" xyz="0 0 0.0345175"/>
+			<geometry>
+    <box size="0.02473 0.0549 0.089265"/>
+			</geometry>
+  </collision>
  </link>
  
  <joint name="joint4" type="revolute">
@@ -95,6 +124,12 @@
     <box size="0.025 0.005 0.09"/>
 			</geometry>
 		</visual>
+  <collision>
+   <origin rpy="0 0 0" xyz="0 0.026 0.04"/>
+			<geometry>
+    <box size="0.025 0.005 0.09"/>
+			</geometry>
+  </collision>
 	</link>
 
 	<joint name="finger_joint" type="revolute">
@@ -111,6 +146,12 @@
     <box size="0.025 0.005 0.09"/>
    </geometry>
   </visual>
+  <collision>
+   <origin rpy="0 0 0" xyz="0 0 0.04"/>
+   <geometry>
+    <box size="0.025 0.005 0.09"/>
+   </geometry>
+  </collision>
  </link>
  
  <joint name="fixfinger_joint" type="fixed">
